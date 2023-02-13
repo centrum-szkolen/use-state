@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Counter from "./Counter";
+import DoubleCounter from "./DoubleCounter";
+import Field from "./Field";
+import Komponent from "./Komponent";
+import Password from "./Password";
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState({
+    firstname:"Jan",
+    lastname:"Kowalski"
+  });
+  const [languages, setLanguages] = useState(["Javascript","PHP","C#","Python"]);
+
+  console.log("App - rerender");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+         <h1>Witaj {user.firstname} {user.lastname}</h1>
+         <Counter/>
+         <Counter/>
+         <Komponent/>
+         <Komponent/>
+         <Komponent/>
+         <DoubleCounter/>
+         <Field/>
+         <Password/>
+         {languages.map((language,index) => <p key={index}>{language}</p>)}
     </div>
   );
-}
+};
 
 export default App;
